@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @user.name %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @user.address %>
+</p>
+
+<p>
+  <b>Languages:</b>
+  <% tmp = Array.new %>
+  <% languages = @user.languages %>
+  <% languages.each{|lang| %>
+    <% if !lang.eql?(languages.last) %>
+      <%= "#{lang.english_name}, " %>
+    <% else %>
+      <%= lang.english_name %>
+    <% end %>
+  <%}%>
+</p>
+
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
